@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}VulnLab{% endblock %}
+{% block content %}
+  <h1>VulnLab</h1>
+  <p>A small, deliberately vulnerable notes app for practicing web application
+  penetration testing. Six bugs are hidden in here on purpose.</p>
+  {% if not user %}
+    <p>Try logging in as <code>alice</code> / <code>alice123</code> or
+    <code>bob</code> / <code>hunter2</code> to get started &mdash; or find
+    your own way in.</p>
+    <p><a href="{{ url_for('login') }}">Log in</a></p>
+  {% else %}
+    <p><a href="{{ url_for('dashboard') }}">Go to your dashboard</a></p>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Search{% endblock %}
+{% block content %}
+  <h1>Search results for "{{ q }}"</h1>
+  {% if error %}<p class="error">DB error: {{ error }}</p>{% endif %}
+  <ul>
+    {% for note in notes %}
+      <li><a href="{{ url_for('view_note', note_id=note['id']) }}">{{ note['title'] }}</a> (owner_id {{ note['owner_id'] }})</li>
+    {% else %}
+      <li>No matches.</li>
+    {% endfor %}
+  </ul>
+  <p><a href="{{ url_for('dashboard') }}">&larr; back</a></p>
+{% endblock %}

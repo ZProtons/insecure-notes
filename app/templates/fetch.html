@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Link preview{% endblock %}
+{% block content %}
+  <h1>Link preview</h1>
+  <p>Paste a URL and the server will fetch it for you.</p>
+  <form method="post">
+    <input type="text" name="url" value="{{ target_url }}" placeholder="https://example.com" size="50">
+    <button type="submit">Fetch</button>
+  </form>
+  {% if result %}
+    <h2>Result</h2>
+    <pre>{{ result }}</pre>
+  {% endif %}
+{% endblock %}

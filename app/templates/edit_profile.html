@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}Edit profile{% endblock %}
+{% block content %}
+  <h1>Edit your bio</h1>
+  <form method="post">
+    <label>Bio <textarea name="bio">{{ user['bio'] }}</textarea></label>
+    <button type="submit">Save</button>
+  </form>
+{% endblock %}
